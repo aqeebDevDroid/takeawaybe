@@ -72,4 +72,14 @@ public class UserController {
         model.responseCode = HttpStatus.CREATED.value();
         return model;
     }
+
+
+    @GetMapping("/state")
+    public ResponseModel getUsersByState(@RequestParam String state) {
+        ResponseModel model = new ResponseModel();
+        model.data = Collections.singletonList(userService.getUsersByCity(state));
+        model.message = "Users Found";
+        model.responseCode = HttpStatus.CREATED.value();
+        return model;
+    }
 }
